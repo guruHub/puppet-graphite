@@ -1,4 +1,6 @@
-class graphite::config inherits graphite::params {
+class graphite::config(
+	$storage_schemas = undef
+) inherits graphite::params {
 
 	anchor { 'graphite::config::begin': }
 	anchor { 'graphite::config::end': }

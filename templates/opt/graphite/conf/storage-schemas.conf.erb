@@ -19,3 +19,7 @@ retentions = 60s:90d
 [default]
 pattern = .*
 retentions = 1s:30m,60s:24h,300s:730d
+
+<% if @storage_schemas -%><% storage_schemas.each do |i| -%>
+<%= i %>
+<% end -%><% end -%>
