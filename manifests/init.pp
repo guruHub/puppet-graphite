@@ -7,18 +7,13 @@ class graphite(
 	}
 
 	class { 'graphite::config':
+		storage_schemas => $storage_schemas,
 		require         => Class['graphite::install']
 	}
 
-	if $storage_schemas {
-		Class['Grapite::Config'] { 
-			storage_schemas => $storage_schemas
-		}
-	}
-
-      # Allow the end user to establish relationships to the "main" class
-      # and preserve the relationship to the implementation classes through
-      # a transitive relationship to the composite class.
-      anchor { 'graphite::begin': before => Class['graphite::install'] }
-      anchor { 'graphite::end': require => Class['graphite::config'] }
+      	# Allow the end user to establish relationships to the "main" class
+      	# and preserve the relationship to the implementation classes through
+      	# a transitive relationship to the composite class.
+      	anchor { 'graphite::begin': before => Class['graphite::install'] }
+      	anchor { 'graphite::end': require => Class['graphite::config'] }
 }
