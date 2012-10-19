@@ -1,5 +1,5 @@
 class graphite(
-	storage_schemas = undef
+	$storage_schemas = undef
 ) {
 
 	class { 'graphite::install':
@@ -11,7 +11,7 @@ class graphite(
 	}
 
 	if $storage_schemas {
-		Class['grapite::config'] { 
+		Class['Grapite::Config'] { 
 			storage_schemas => $storage_schemas
 		}
 	}
