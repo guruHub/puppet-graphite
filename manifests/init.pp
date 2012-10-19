@@ -1,11 +1,19 @@
-class graphite {
+class graphite(
+	storage_schemas = undef
+) {
 
 	class { 'graphite::install':
 		notify => Class['graphite::config'],
 	}
 
 	class { 'graphite::config':
-		require => Class['graphite::install']
+		require         => Class['graphite::install']
+	}
+
+	if $storage_schemas {
+		Class['grapite::config'] { 
+			storage_schemas => $storage_schemas
+		}
 	}
 
       # Allow the end user to establish relationships to the "main" class
