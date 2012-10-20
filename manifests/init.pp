@@ -1,6 +1,7 @@
 class graphite(
 	$storage_schemas = undef,
-	$enable_udp      = 'False'
+	$enable_udp      = 'False',
+	$auth_file	 = undef
 ) {
 
 	class { 'graphite::install':
@@ -10,6 +11,7 @@ class graphite(
 	class { 'graphite::config':
 		storage_schemas => $storage_schemas,
 		enable_udp	=> $enable_udp,
+		auth_file	=> $auth_file,
 		require         => Class['graphite::install']
 	}
 
