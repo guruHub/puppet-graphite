@@ -5,14 +5,13 @@
 	ErrorLog /opt/graphite/storage/error.log        
 	CustomLog /opt/graphite/storage/access.log common        
 
-	<% if @auth_file %>
-	AuthType Basic
-	AuthName "Restricted Access"
-	AuthUserFile <%= auth_file %>
-	Require valid-user
-	<% end %>	
-
 	<Location "/">                
+<% if @auth_file %>
+		AuthType Basic
+		AuthName "Restricted Access"
+		AuthUserFile <%= auth_file %>
+		Require valid-user
+<% end -%>	
 		SetHandler python-program
 		PythonPath "['/opt/graphite/webapp'] + sys.path"
 		PythonHandler django.core.handlers.modpython
