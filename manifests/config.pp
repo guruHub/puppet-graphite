@@ -1,5 +1,6 @@
 class graphite::config(
-	$storage_schemas = undef
+	$storage_schemas = undef,
+	$enable_udp      = 'False'
 ) inherits graphite::params {
 
 	anchor { 'graphite::config::begin': }

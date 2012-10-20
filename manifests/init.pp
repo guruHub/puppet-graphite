@@ -1,5 +1,6 @@
 class graphite(
-	$storage_schemas = undef
+	$storage_schemas = undef,
+	$enable_udp      = 'False'
 ) {
 
 	class { 'graphite::install':
