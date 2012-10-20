@@ -9,6 +9,7 @@ class graphite(
 
 	class { 'graphite::config':
 		storage_schemas => $storage_schemas,
+		enable_udp	=> $enable_udp,
 		require         => Class['graphite::install']
 	}
 
