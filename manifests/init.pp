@@ -2,7 +2,8 @@ class graphite(
 	$storage_schemas = undef,
 	$enable_udp      = 'False',
 	$auth_file	 = undef,
-	$vhost_alias	 = undef
+	$vhost_alias	 = undef,
+	$time_zone	 = 'Europe/Berlin'
 ) {
 
 	class { 'graphite::install':
@@ -14,7 +15,8 @@ class graphite(
 		enable_udp	=> $enable_udp,
 		auth_file	=> $auth_file,
 		vhost_alias	=> $vhost_alias,
-		require         => Class['graphite::install']
+		require         => Class['graphite::install'],
+		time_zone	=> $time_zone
 	}
 
       	# Allow the end user to establish relationships to the "main" class
