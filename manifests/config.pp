@@ -2,7 +2,8 @@ class graphite::config(
 	$storage_schemas = undef,
 	$enable_udp      = 'False',
 	$auth_file	 = undef,
-	$vhost_alias	 = undef
+	$vhost_alias	 = undef,
+	$time_zone 	 = 'Europe/Berlin'
 ) inherits graphite::params {
 
 	anchor { 'graphite::config::begin': }
